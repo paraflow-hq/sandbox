@@ -23,5 +23,5 @@ jobs:
       env:
         E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
       run: |
-        e2b template build --name claude-code-sdk-template
-        e2b template deploy claude-code-sdk-template
+        e2b template build
+        e2b template publish
