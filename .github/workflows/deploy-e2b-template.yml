@@ -24,4 +24,4 @@ jobs:
         E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
       run: |
         e2b template build
-        e2b template publish
+        e2b template publish -y
