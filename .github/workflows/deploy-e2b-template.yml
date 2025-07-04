@@ -1,0 +1,27 @@
+name: Deploy E2B Template
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Install E2B CLI
+      run: npm install -g @e2b/cli
+
+    - name: Deploy template to E2B
+      env:
+        E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
+      run: |
+        e2b template build --name claude-code-sdk-template
+        e2b template deploy claude-code-sdk-template
