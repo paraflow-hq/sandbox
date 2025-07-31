@@ -11,16 +11,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-
-    - name: Install E2B CLI
-      run: npm install -g @e2b/cli
+    - name: Setup E2B Environment
+      uses: ./.github/actions/setup-e2b
 
     - name: Deploy template to E2B
       env:

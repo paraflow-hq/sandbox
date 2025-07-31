@@ -1,0 +1,16 @@
+name: 'Setup E2B Environment'
+description: 'Sets up Node.js and E2B CLI for template operations'
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    
+    - name: Install E2B CLI
+      shell: bash
+      run: npm install -g @e2b/cli
