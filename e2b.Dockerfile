@@ -1,8 +1,13 @@
-# Use pnpm image to get pnpm binary
-FROM pnpm/pnpm:latest-alpine as pnpm
-
 # Full-stack development environment with Node.js, Python, and CLI tools
 FROM e2bdev/code-interpreter:latest
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Configure pnpm global bin directory
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN mkdir -p $PNPM_HOME
 
 # Install Claude Code CLI
 RUN pnpm install -g @anthropic-ai/claude-code
