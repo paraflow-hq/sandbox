@@ -1,14 +1,15 @@
-name: Deploy E2B Template
+name: PR Validation
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
     paths:
       - 'e2b.Dockerfile'
       - '.github/workflows/deploy-e2b-template.yml'
+      - '.github/workflows/pr-validation.yml'
 
 jobs:
-  deploy:
+  validate-docker-build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -22,9 +23,9 @@ jobs:
     - name: Install E2B CLI
       run: npm install -g @e2b/cli
 
-    - name: Deploy template to E2B
+    - name: Test E2B template build
       env:
         E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
       run: |
+        # test docker build
         e2b template build -c "/root/.jupyter/start-up.sh"
-        e2b template publish -y

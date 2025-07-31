@@ -1,11 +1,11 @@
+# Use pnpm image to get pnpm binary
+FROM pnpm/pnpm:latest-alpine as pnpm
+
 # Full-stack development environment with Node.js, Python, and CLI tools
 FROM e2bdev/code-interpreter:latest
 
-# Install pnpm
-RUN npm install -g pnpm
-
-# Setup pnpm and install Claude Code CLI
-RUN pnpm setup && pnpm install -g @anthropic-ai/claude-code
+# Install Claude Code CLI
+RUN pnpm install -g @anthropic-ai/claude-code
 
 # Install GitHub CLI
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
