@@ -4,8 +4,13 @@ FROM e2bdev/code-interpreter:latest
 # Install pnpm
 RUN npm install -g pnpm
 
-# Setup pnpm and install Claude Code CLI
-RUN pnpm setup && pnpm install -g @anthropic-ai/claude-code
+# Configure pnpm global bin directory
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN mkdir -p $PNPM_HOME
+
+# Install Claude Code CLI
+RUN pnpm install -g @anthropic-ai/claude-code
 
 # Install GitHub CLI
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
