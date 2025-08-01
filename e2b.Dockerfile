@@ -3,7 +3,9 @@ FROM e2bdev/code-interpreter:latest
 
 # Install Claude Code CLI
 RUN npm install -g @anthropic-ai/claude-code
-RUN claude mcp add playwright npx @playwright/mcp@latest
+RUN npx playwright install chrome
+RUN useradd -m -s /bin/bash user
+RUN runuser -u user -- claude mcp add playwright npx @playwright/mcp@latest
 
 # Install pnpm
 RUN npm install -g pnpm
