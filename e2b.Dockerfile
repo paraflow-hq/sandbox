@@ -23,3 +23,6 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     apt-get install -y gh
 
 RUN pip install claude-code-sdk anyio
+
+# Install s3fs
+RUN apt-get install -y s3fs
