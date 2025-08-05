@@ -28,8 +28,8 @@ RUN pip install claude-code-sdk anyio
 RUN apt-get install -y s3fs
 
 # Install AWS CLI
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \                                                                                                                                          │ │
-    unzip awscliv2.zip && \                                                                                                                                                                                                         │ │
-    ./aws/install && \                                                                                                                                                                                                              │ │
-    rm -rf awscliv2.zip aws/ && \                                                                                                                                                                                                   │ │
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip aws/ && \
     aws --version
