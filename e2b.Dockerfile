@@ -23,3 +23,7 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     apt-get install -y gh
 
 RUN pip install claude-code-sdk anyio
+
+# Copy sandbox template files
+COPY ./sandbox_template/ /home/user/sandbox_template/
+RUN chown -R user:user /home/user/sandbox_template/
