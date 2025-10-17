@@ -21,4 +21,4 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     apt-get update && \
     apt-get install -y gh
 
-RUN pip install claude-code-sdk anyio boto3 e2b-code-interpreter
+RUN pip install claude-code-sdk anyio boto3 e2b-code-interpreter GitPython
