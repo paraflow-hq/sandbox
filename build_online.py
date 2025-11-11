@@ -6,7 +6,7 @@ from template import template
 async def main():
     await AsyncTemplate.build(
         template,
-        alias="claude-code-python-sdk-dev",
+        alias="paraflow-online-template",
         memory_mb=2048,
         on_build_logs=default_build_logger(),
     )

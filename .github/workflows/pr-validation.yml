@@ -22,4 +22,5 @@ jobs:
       env:
         E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
       run: |
-        python build_dev.py
+        python build_test.py
+        python build_online.py
