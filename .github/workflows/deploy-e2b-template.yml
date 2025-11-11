@@ -21,5 +21,4 @@ jobs:
       env:
         E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
       run: |
-        e2b template build -c "/root/.jupyter/start-up.sh"
-        e2b template publish -y
+        python build_dev.py
