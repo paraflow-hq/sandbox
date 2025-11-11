@@ -7,6 +7,7 @@ async def main():
     await AsyncTemplate.build(
         template,
         alias="claude-code-python-sdk-dev",
+        memory_mb=2048,
         on_build_logs=default_build_logger(),
     )
 
