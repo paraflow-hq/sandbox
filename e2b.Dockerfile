@@ -1,5 +1,5 @@
 # Full-stack development environment with Node.js, Python, and CLI tools
-FROM e2bdev/code-interpreter:latest
+FROM e2bdev/code-interpreter:0.1.1
 
 # Install Claude Code CLI
 RUN npm install -g @anthropic-ai/claude-code@2.0.14
