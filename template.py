@@ -7,7 +7,7 @@ template = (
     .set_workdir("/")
     .run_cmd("npm install -g @anthropic-ai/claude-code@2.0.14")
     .run_cmd("npx playwright install chrome")
-    .run_cmd("useradd -m -s /bin/bash user")
+    .run_cmd("id -u user >/dev/null 2>&1 || useradd -m -s /bin/bash user")
     .run_cmd("npm install -g pnpm")
     .set_envs({
         "PNPM_HOME": "/root/.local/share/pnpm",
