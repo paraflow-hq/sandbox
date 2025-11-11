@@ -20,6 +20,6 @@ jobs:
 
     - name: Test E2B template build
       env:
-        E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
+        api_key: ${{ secrets.E2B_ACCESS_TOKEN }}
       run: |
         python build_dev.py
