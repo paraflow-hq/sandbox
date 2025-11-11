@@ -22,4 +22,4 @@ jobs:
       env:
         E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
       run: |
-        e2b template build -c "/root/.jupyter/start-up.sh" --memory-mb 2048
+        e2b template build -c "/root/.jupyter/start-up.sh" --cpu-count 2 --memory-mb 2048
