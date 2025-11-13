@@ -1,13 +1,13 @@
 name: 'Setup E2B Environment'
-description: 'Sets up Node.js and E2B CLI for template operations'
+description: 'Sets up Python and E2B SDK for template operations'
 runs:
   using: 'composite'
   steps:
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - name: Setup Python
+      uses: actions/setup-python@v5
       with:
-        node-version: '22'
+        python-version: '3.13'
     
-    - name: Install E2B CLI
+    - name: Install E2B SDK
       shell: bash
-      run: npm install -g @e2b/cli
+      run: pip install e2b

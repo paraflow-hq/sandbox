@@ -20,6 +20,7 @@ jobs:
 
     - name: Test E2B template build
       env:
-        E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
+        E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
+        COMMIT_ID: ${{ github.event.pull_request.head.sha }}
       run: |
-        e2b template build -c "/root/.jupyter/start-up.sh"
+        python build.py

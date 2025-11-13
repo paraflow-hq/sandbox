@@ -19,7 +19,7 @@ jobs:
 
     - name: Deploy template to E2B
       env:
-        E2B_ACCESS_TOKEN: ${{ secrets.E2B_ACCESS_TOKEN }}
+        E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
+        COMMIT_ID: ${{ github.sha }}
       run: |
-        e2b template build -c "/root/.jupyter/start-up.sh"
-        e2b template publish -y
+        python build.py
