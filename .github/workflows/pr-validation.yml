@@ -23,4 +23,3 @@ jobs:
         E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
       run: |
         python build_test.py
-        python build_online.py
