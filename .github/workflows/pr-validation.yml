@@ -23,4 +23,4 @@ jobs:
         E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
         COMMIT_ID: ${{ github.event.pull_request.head.sha }}
       run: |
-        python build_test.py
+        python build.py
