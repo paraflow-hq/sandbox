@@ -2,7 +2,7 @@ from e2b import AsyncTemplate
 
 template = (
     AsyncTemplate()
-    .from_image("e2bdev/code-interpreter:latest")
+    .from_template("code-interpreter-v1")
     .set_user("root")
     .set_workdir("/")
     .run_cmd("npm install -g @anthropic-ai/claude-code@2.0.14")
