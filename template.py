@@ -5,7 +5,7 @@ template = (
     .from_template("code-interpreter-v1")
     .set_user("root")
     .set_workdir("/")
-    .run_cmd("npm install -g @anthropic-ai/claude-code@2.0.14")
+    .run_cmd("npm install -g @anthropic-ai/claude-code@2.0.42")
     .run_cmd("npx playwright install chrome")
     .run_cmd("npm install -g pnpm")
     .set_envs({
