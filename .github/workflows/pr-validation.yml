@@ -4,9 +4,10 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'e2b.Dockerfile'
       - '.github/workflows/deploy-e2b-template.yml'
       - '.github/workflows/pr-validation.yml'
+      - 'template.py'
+      - 'build.py'
 
 jobs:
   validate-docker-build:
