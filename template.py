@@ -19,4 +19,6 @@ template = (
     .run_cmd("pip install claude-code-sdk claude-agent-sdk anyio boto3 e2b-code-interpreter GitPython")
     .set_user("user")
     .set_workdir("/home/user")
+    .run_cmd("npm install playwright && npx playwright install chromium")
+    .run_cmd("ls -la /home/user/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/ && test -f /home/user/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell && echo 'EXISTS' || echo 'NOT FOUND'")
 )
