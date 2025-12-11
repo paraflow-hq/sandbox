@@ -6,6 +6,7 @@ template = (
     .set_user("root")
     .set_workdir("/")
     .run_cmd("npm install -g @anthropic-ai/claude-code@2.0.36")
+    .run_cmd("npm install -g @datadog/datadog-api-client")
     .run_cmd("npx playwright install chrome")
     .run_cmd("npm install -g pnpm")
     .set_envs({
