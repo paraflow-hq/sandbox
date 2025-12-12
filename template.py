@@ -20,4 +20,8 @@ template = (
     .run_cmd("pip install claude-code-sdk claude-agent-sdk==0.1.6 anyio boto3 e2b-code-interpreter GitPython datadog-api-client")
     .set_user("user")
     .set_workdir("/home/user")
+    .run_cmd("wget https://paraflow-online.s3.amazonaws.com/public/resource/txom_prompt/txom-prompt.main.zip -O /home/user/txom-prompt.main.zip")
+    .run_cmd("unzip /home/user/txom-prompt.main.zip -d /home/user/txom && cd /home/user/txom/txom-dev/demo/ && pnpm install")
+    .run_cmd("rm -rf /home/user/txom-prompt.main.zip")
+    .run_cmd("rm -rf /home/user/txom")
 )
