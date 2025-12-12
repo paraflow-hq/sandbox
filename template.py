@@ -21,7 +21,6 @@ template = (
     .set_user("user")
     .set_workdir("/home/user")
     .run_cmd("wget https://paraflow-online.s3.amazonaws.com/public/resource/txom_prompt/txom-prompt.main.zip -O /tmp/txom-prompt.main.zip")
-    .run_cmd("unzip /tmp/txom-prompt.main.zip -d /tmp/txmo")
-    .run_cmd("cd /tmp/txmo/txmo-dev/demo && pnpm install")
+    .run_cmd("unzip /tmp/txom-prompt.main.zip -d /tmp/txmo && cd /tmp/txmo/txmo-dev/demo && pnpm install")
     .run_cmd("rm -rf /tmp/txmo")
 )
