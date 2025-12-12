@@ -20,4 +20,5 @@ template = (
     .run_cmd("pip install claude-code-sdk claude-agent-sdk==0.1.6 anyio boto3 e2b-code-interpreter GitPython datadog-api-client")
     .set_user("user")
     .set_workdir("/home/user")
+    .run_cmd("pnpm store path")
 )
