@@ -14,7 +14,8 @@ async def main():
     await AsyncTemplate.build(
         template,
         alias=alias,
-        memory_mb=2048,
+        cpu_count=4,
+        memory_mb=4096,
         on_build_logs=default_build_logger(),
     )
 
