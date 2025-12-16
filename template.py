@@ -10,6 +10,7 @@ template = (
     .run_cmd("npx playwright install chrome")
     .run_cmd("npm install -g pnpm")
     .run_cmd("npm install -g esbuild")
+    .run_cmd("npm install -g tsx")
     .set_envs({
         "PNPM_HOME": "/root/.local/share/pnpm",
     })
