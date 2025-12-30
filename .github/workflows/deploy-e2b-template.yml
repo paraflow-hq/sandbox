@@ -19,8 +19,10 @@ jobs:
       uses: ./.github/actions/setup-e2b
 
     - name: Deploy template to E2B
+      id: build
       env:
         E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
         COMMIT_ID: ${{ github.sha }}
+        TEMPLATE_ENV: online
       run: |
         python build.py
