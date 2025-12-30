@@ -26,7 +26,3 @@ jobs:
         TEMPLATE_ENV: test
       run: |
         python build.py
-    
-    # 示例：后续步骤可以这样引用 template_alias
-    # - name: Use template alias
-    #   run: echo "Template alias is ${{ steps.build.outputs.template_alias }}"
