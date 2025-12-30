@@ -22,5 +22,6 @@ jobs:
       env:
         E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
         COMMIT_ID: ${{ github.sha }}
+        TEMPLATE_ENV: prod
       run: |
         python build.py

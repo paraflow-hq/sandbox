@@ -9,7 +9,11 @@ async def main():
     if not commit_id:
         raise ValueError("COMMIT_ID environment variable is required")
     
-    alias = f"paraflow-template-{commit_id}"
+    env = os.environ.get("TEMPLATE_ENV")
+    if not env:
+        raise ValueError("TEMPLATE_ENV environment variable is required")
+    
+    alias = f"{env}-paraflow-template-{commit_id}"
     
     await AsyncTemplate.build(
         template,
