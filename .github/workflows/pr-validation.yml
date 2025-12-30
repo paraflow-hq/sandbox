@@ -26,3 +26,11 @@ jobs:
         TEMPLATE_ENV: pr-${{ github.event.pull_request.number }}
       run: |
         python build.py
+
+    - name: Test E2B test template build
+      env:
+        E2B_API_KEY: ${{ secrets.E2B_TEST_API_KEY }}
+        COMMIT_ID: ${{ github.event.pull_request.head.sha }}
+        TEMPLATE_ENV: test-pr-${{ github.event.pull_request.number }}
+      run: |
+        python build.py
