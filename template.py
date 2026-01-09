@@ -9,9 +9,14 @@ template = (
     .run_cmd("npm install -g tsx@^4.7.0 @anthropic-ai/claude-code@2.0.36 axios@^1.6.0 adm-zip@^0.5.10 form-data@^4.0.0 @datadog/datadog-api-client tar systeminformation")
     .run_cmd("npx playwright install chrome")
     .run_cmd("npm install -g pnpm")
+    .run_cmd("curl -fsSL https://opencode.ai/install | bash")
+    .run_cmd("export PATH=\"$HOME/.opencode/bin:$PATH\" && opencode --version")
     .set_envs({
         "PNPM_HOME": "/root/.local/share/pnpm",
     })
+    .set_envs({
+          "PATH": "$PNPM_HOME:/root/.opencode/bin:$PATH",
+      })
     .set_envs({
         "PATH": "$PNPM_HOME:$PATH",
     })
@@ -20,6 +25,7 @@ template = (
     .run_cmd("pip install claude-code-sdk claude-agent-sdk==0.1.6 anyio boto3 e2b-code-interpreter GitPython datadog-api-client")
     .set_user("user")
     .set_workdir("/home/user")
+    .run_cmd("echo 'export PATH=\"$PATH:/root/.opencode/bin\"' >> /home/user/.bashrc")
     .run_cmd("wget https://paraflow-online.s3.amazonaws.com/public/resource/txom_prompt/txom-prompt.main.zip -O /home/user/txom-prompt.main.zip")
     .run_cmd("unzip /home/user/txom-prompt.main.zip -d /home/user/txom && cd /home/user/txom/txom-dev/demo/ && pnpm install")
     .run_cmd("rm -rf /home/user/txom-prompt.main.zip")
