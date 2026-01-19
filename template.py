@@ -8,8 +8,9 @@ template = (
     .run_cmd("sysctl fs.inotify.max_user_watches=131070 && sysctl -p")
     .run_cmd("npm install -g tsx@^4.7.0 @anthropic-ai/claude-code@2.0.36 axios@^1.6.0 adm-zip@^0.5.10 form-data@^4.0.0 @datadog/datadog-api-client tar systeminformation")
     .run_cmd("npx playwright install chrome")
+    .run_cmd("sg --version")
+    .run_cmd("ast-grep --version")
     .run_cmd("npm install -g pnpm")
-    .run_cmd("npm install -g @ast-grep/cli")
     .set_envs({
         "PNPM_HOME": "/root/.local/share/pnpm",
     })
