@@ -20,7 +20,7 @@ template = (
         "npm install -g tsx@^4.7.0 @anthropic-ai/claude-code@2.0.36 axios@^1.6.0 adm-zip@^0.5.10 form-data@^4.0.0 @datadog/datadog-api-client tar systeminformation"
     )
     .run_cmd("npx playwright install chrome")
-    .run_cmd("npm install -g pnpm")
+    .run_cmd("npm install -g pnpm@9")
     .run_cmd("pnpm --package=@ast-grep/cli dlx ast-grep --version")
     # 配置 pnpm 环境变量
     .set_envs({"PNPM_HOME": "/root/.local/share/pnpm"})
@@ -39,7 +39,6 @@ template = (
         "wget https://paraflow-online.s3.amazonaws.com/public/resource/txom_prompt/txom-prompt.main.zip -O /home/user/txom-prompt.main.zip"
     )
     .run_cmd("unzip /home/user/txom-prompt.main.zip -d /home/user/txom")
-    .run_cmd("ls -la /home/user/txom/")
     .run_cmd("cd /home/user/txom/paraflow/demo/ && pnpm install")
     # 清理临时文件
     .run_cmd("rm -rf /home/user/txom-prompt.main.zip")
