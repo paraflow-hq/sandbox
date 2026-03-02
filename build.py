@@ -13,6 +13,7 @@ async def main():
     if not env:
         raise ValueError("TEMPLATE_ENV environment variable is required")
     
+    # 模板别名
     alias = f"{env}-paraflow-template-{commit_id}"
     
     await AsyncTemplate.build(
