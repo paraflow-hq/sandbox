@@ -1,4 +1,4 @@
-name: Deploy E2B Template
+name: Deploy E2B-MOXT-online Template
 
 on:
   push:
