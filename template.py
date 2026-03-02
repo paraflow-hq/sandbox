@@ -38,9 +38,9 @@ template = (
     .run_cmd(
         "wget https://paraflow-online.s3.amazonaws.com/public/resource/txom_prompt/txom-prompt.main.zip -O /home/user/txom-prompt.main.zip"
     )
-    .run_cmd(
-        "unzip /home/user/txom-prompt.main.zip -d /home/user/txom && cd /home/user/txom/paraflow/demo/ && pnpm install"
-    )
+    .run_cmd("unzip /home/user/txom-prompt.main.zip -d /home/user/txom")
+    .run_cmd("ls -la /home/user/txom/")
+    .run_cmd("cd /home/user/txom/paraflow/demo/ && pnpm install")
     # 清理临时文件
     .run_cmd("rm -rf /home/user/txom-prompt.main.zip")
     .run_cmd("rm -rf /home/user/txom")
