@@ -1,0 +1,28 @@
+name: Deploy E2B Template
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/deploy-e2b-template.yml'
+      - 'template.py'
+      - 'build.py'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup E2B Environment
+      uses: ./.github/actions/setup-e2b
+
+    - name: Deploy template to E2B
+      id: build
+      env:
+        E2B_API_KEY: ${{ secrets.E2B_MOXT_ONLINE_KEY }}
+        COMMIT_ID: ${{ github.sha }}
+        TEMPLATE_ENV: online
+      run: |
+        python build.py
