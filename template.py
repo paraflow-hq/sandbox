@@ -7,6 +7,8 @@ template = (
     .set_workdir("/")
     # 系统配置
     .run_cmd("sysctl fs.inotify.max_user_watches=131070 && sysctl -p")
+    # Remove NodeSource APT repo inherited from base image (SHA1 GPG key rejected by sqv since 2026-02-01)
+    .run_cmd("rm -f /etc/apt/sources.list.d/nodesource.list")
     # 安装系统工具
     .run_cmd("apt-get update")
     .run_cmd("apt-get install -y strace htop curl wget unzip iptables")
