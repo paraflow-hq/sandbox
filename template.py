@@ -32,6 +32,14 @@ template = (
     .run_cmd(
         "pip install claude-code-sdk claude-agent-sdk==0.1.6 anyio boto3 e2b-code-interpreter GitPython datadog-api-client"
     )
+    # Create dedicated user for MITM proxy adapter.
+    # iptables uses --uid-owner to bypass proxy adapter's own traffic, preventing
+    # routing loops without relying on destination IP (which fails when hosts share
+    # Cloudflare Anycast IPs).
+    .run_cmd("useradd -r -M -s /usr/sbin/nologin mitmproxy")
+    .run_cmd(
+        'echo "mitmproxy ALL=(ALL) NOPASSWD: /usr/bin/cp, /usr/sbin/update-ca-certificates" > /etc/sudoers.d/mitmproxy && chmod 440 /etc/sudoers.d/mitmproxy'
+    )
     # 切换到普通用户
     .set_user("user")
     .set_workdir("/home/user")
